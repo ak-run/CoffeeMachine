@@ -58,9 +58,9 @@ def is_resource_sufficient(order_ingredients):
 # TODO: Update resources
 
 def update_resources(drink_purchased):
-    """Updates amount of resources and profit after drink is purchased"""
-    ingredients = MENU[drink_purchased]["ingredients"]
-    for key, value in ingredients.items():
+    """Updates resources and profit after drink is purchased by deducting required ingredients from resources"""
+    req_ingredients = MENU[drink_purchased]["ingredients"]
+    for key, value in req_ingredients.items():
         resources[key] -= value
     global profit
     profit = profit + MENU[choice]["cost"]
@@ -83,7 +83,7 @@ def coin_payment(drink_chosen):
 
 
 def making_coffee(chosen_drink):
-    print(f"Here's your {chosen_drink}. Enjoy!")
+    print(f"Here's your ☕️ {chosen_drink}. Enjoy!")
 
 
 while is_on:
